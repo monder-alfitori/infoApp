@@ -1,0 +1,101 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'main/css/style.scss' %}"     rel="stylesheet" media="screen">
+    {% endcompress %}
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://unpkg.com/htmx.org@1.5.0"
+     integrity="sha384-oGA+prIp5Vchu6we2YkI51UtVzN9Jpx2Z7PnR1I78PnZlN8LkrCT4lqqqmDkyrvI"
+     crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+   <style>
+
+   </style>
+<body>
+
+</body>
+
+<body hx-target="this" hx-swap="outerHTML">
+  <div class="section1">
+    {% include 'main/components/sidebar.html' %}
+    {% include 'main/components/placeholderLoader.html' %}
+    <section class="home-section" id="home-section">
+      <div class="home-content">
+      </div>
+      <div class="section2">
+        <div class="back">
+            <a onclick="openLoaderPage()" hx-get="{% url 'home' %}"><img src="{% static 'main/images/back.png' %}" alt=""></a>
+        </div>  
+        <div class="heading">
+            <div class="right">
+                <h2 class="title">الوثائق</h2>
+            </div>
+            <div class="left">
+                <a href="{% url 'create_document' %}" class="add">إضافة +</a>
+                <div class="search-bar">
+                    <form onsubmit="openLoaderPage()" hx-get="{% url 'search' %}" class="form">
+                      <input type="hidden" name="form_type" value="documentsearchform">
+                      <input type="text" name="query" id="search_input" placeholder="البحث عن وثيقة..." oninput="replaceSpaces1()"/>
+                    </form>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="feed">
+            <table class="feedtable">
+            <tr>
+                <th><i class='bx bxs-copy' ></i><span class="link_name"></span></th>
+                <th><a class="iLink"><i class='bx bxs-message-square' ></i><span class="link_name"></span></a></th>
+                <th><i class='bx bxs-collection' ></i><span class="link_name"></span></th>
+                <th><i class='bx bxs-calendar-alt' ></i><span class="link_name"></span></th>
+            </tr>
+            {% for document in documents %}
+            <tr>
+                <td class="title"><a onclick="openLoaderPage()" class="td_link" hx-get="{% url 'document' document.id %}">{{document.title}}</a></td>
+                <td class="party">none</td>
+                <td class="tags">none</td>
+                <td class="created_at">{{document.created_at|date:"M Y, d" }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+  
+
+
+  
+
+
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    </script>
+  
+  <script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+    event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+  </script>
+
+
+
+
+
+
+  </body>
+</html>
+{% endblock content %} 

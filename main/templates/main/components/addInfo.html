@@ -1,0 +1,102 @@
+  {% load static %}
+    <div id="addInfo" class="overlay">
+      <div class="sidePopup">
+        <h2>إضافة معلومة جديدة</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+          <div id="loadingModal" style="display: none; padding-top: 30vh; width: 100%; min-height: 70vh; text-align: center;">
+            <img src="{% static 'main/images/loading.gif' %}" style="width: 300px;" alt="">
+          </div>
+          <form onsubmit="openAddLoader()" method="post" action="." id="addInfoForm" hx-post="{% url 'home' %}">
+            {% csrf_token %}
+                <input type="hidden" name="form_type" value="addInfo">
+                <input type="text" class="textarea"id="title" name="title" placeholder="كتابة عنوان للمعلومة..." required>
+                <input type="text" class="textarea" id="link" name="link" placeholder="إضافة رابط للمعلومة..." oninput="checkURL()">
+                <textarea name="text" id="textarea" class="text-textarea" placeholder="كتابة الوصف هنا..."></textarea>
+                <input type="text" name="parties" id="inputText1" placeholder="إضافة جهات ذات صلة...">
+                <p id="result1"></p>  
+                <input type="text" name="tags" id="inputText" placeholder="إضافة مواضيع ذات صلة...">
+                <p id="result"></p>            
+                <input type="submit" name="submit" value="حفظ" class="submit"  />
+
+            </form>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+        function checkURL() {
+            var input = document.getElementById('link');
+            var input2 = document.getElementById('textarea');
+
+
+
+            if (input.value.includes('www.facebook.com')) {
+                input.style.borderBottom  = "#1877F2 1px solid";
+                input.style.color = "#1877F2";
+                input2.disabled = true;
+                input2.style.border  = "#9998 1px solid";
+                input2.style.color = "#999";
+            } else {
+                input.style.borderBottom  = "#999 1px solid";
+                input.style.color = "#000";
+                input2.disabled = false;
+                input2.style.border  = "#999 1px solid";
+                input2.style.color = "#000";
+            }
+            if (input.value.includes('fb.watch')) {
+                input.style.borderBottom  = "#1877F2 1px solid";
+                input.style.color = "#1877F2";
+                input2.disabled = true;
+                input2.style.border  = "#9998 1px solid";
+                input2.style.color = "#999";
+            }
+
+          }
+    </script>
+
+    <script>
+      function openAddLoader() {
+        document.getElementById("addInfoForm").style.display = "none";
+          document.getElementById("loadingModal").style.display = "block";
+        }     
+      </script>
+
+<script>
+  $("#addInfo input").not("#addButton").keydown(function(event) {
+  if (event.keyCode == 13) {
+    event.preventDefault();
+    return false;
+  }
+});
+</script>
+
+  <script>
+      function addHashtag() {
+        var inputText1 = document.getElementById("inputText1").value;
+        var words = inputText1.split(" ");
+        var wordsWithHashtags = [];
+        words.forEach(function(word) {
+          var wordWithHashtag = "@" + word;
+          wordsWithHashtags.push(wordWithHashtag);
+        });
+        var result1 = wordsWithHashtags.join(" ");
+        document.getElementById("result1").innerHTML = result1;
+      }
+      document.getElementById("inputText1").addEventListener("input", addHashtag);
+</script>    
+<script>
+      function addHashtag() {
+        var inputText = document.getElementById("inputText").value;
+        var words = inputText.split(" ");
+        var wordsWithHashtags = [];
+        words.forEach(function(word) {
+          var wordWithHashtag = "#" + word;
+          wordsWithHashtags.push(wordWithHashtag);
+        });
+        var result = wordsWithHashtags.join(" ");
+        document.getElementById("result").innerHTML = result;
+      }
+      document.getElementById("inputText").addEventListener("input", addHashtag);
+</script>

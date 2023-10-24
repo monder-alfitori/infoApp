@@ -1,0 +1,580 @@
+@import url("https://fonts.googleapis.com/css2?family=Almarai&family=Cairo:wght@200;400;600;700&family=El+Messiri:wght@500;700&family=Tajawal:wght@300;400;500;700&display=swap");
+@font-face {
+  font-family: "Tajawal";
+  src: url("/static/main/css/main/fonts/Tajawal/Tajawal-Regualr.ttf") format("truetype"); }
+
+/* line 6, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-color: #999 #d4d4d4;
+  scrollbar-width: thin;
+  direction: rtl; }
+
+/* line 14, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+*::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 15px; }
+
+/* line 18, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+*::-webkit-scrollbar-track {
+  background: #d4d4d4; }
+
+/* line 21, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+*::-webkit-scrollbar-thumb {
+  background: #999; }
+
+/* line 24, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+*::-webkit-scrollbar-thumb:hover {
+  background: #ababab; }
+
+/* line 27, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+*:focus {
+  outline: none; }
+
+/* line 30, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+body {
+  background: #ffffff;
+  direction: rtl; }
+
+/* line 35, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+body a {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer; }
+
+/* line 40, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.home-section {
+  position: relative;
+  background-color: #fff;
+  height: 100vh;
+  right: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+/* line 51, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.home-section .home-content {
+  padding-top: 20px;
+  display: flex;
+  align-items: center; }
+
+/* line 56, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.back img {
+  width: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 70px; }
+
+/* line 64, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.back img:hover {
+  background-color: #e7e7e7; }
+
+/* line 68, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 {
+  width: 90%;
+  margin: auto;
+  padding: 80px 0; }
+
+/* line 74, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 45% 50%;
+  gap: 20px; }
+
+/* line 80, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .left {
+  text-align: left;
+  direction: rtl; }
+
+/* line 84, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .left .add {
+  font-size: 14px;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background-color: #000;
+  margin-right: auto;
+  cursor: pointer;
+  float: left; }
+
+/* line 95, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .search-bar {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 10px;
+  align-items: center;
+  float: right;
+  width: 70%; }
+
+/* line 105, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .search-bar input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 4px;
+  width: 100%; }
+
+/* line 115, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .right .title {
+  font-size: 25px;
+  display: inline;
+  margin-left: 10px;
+  word-wrap: break-word; }
+
+/* line 122, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.section2 .heading .right img {
+  width: 25px;
+  display: inline;
+  margin-left: 5px;
+  margin-bottom: -3px;
+  cursor: pointer; }
+
+/* line 132, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feed .text {
+  font-size: 17px;
+  color: #666; }
+
+/* line 136, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable {
+  border-collapse: collapse;
+  width: 100%; }
+
+/* line 142, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable th {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: none;
+  padding: 15px 10px;
+  text-align: right;
+  color: #666;
+  font-weight: 400;
+  cursor: pointer;
+  border-bottom: 2px solid #f2f2f2;
+  font-size: 17px; }
+
+/* line 154, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable td {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+/* line 160, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .iLink {
+  color: #666; }
+
+/* line 163, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .iLink:hover {
+  color: #000; }
+
+/* line 166, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .title {
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 17px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+/* line 174, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .party {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  color: #666;
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: 300;
+  font-size: 15px;
+  width: 20%; }
+
+/* line 185, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .tags {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  color: #666;
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: 300;
+  font-size: 15px;
+  width: 15%; }
+
+/* line 195, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .created_at {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  color: #000;
+  font-weight: 400;
+  border-bottom: 1px solid #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  width: 15%; }
+
+/* line 206, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .partyTitle {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  color: #000;
+  font-weight: 400;
+  width: 30%;
+  font-size: 17px; }
+
+/* line 216, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .text {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  color: #000;
+  font-weight: 200;
+  width: 55%;
+  font-size: 15px; }
+
+/* line 227, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .count {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  color: #000;
+  font-weight: 400;
+  width: 15%;
+  font-size: 15px; }
+
+/* line 238, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.feedtable .title:hover, .td_link:hover {
+  color: #666; }
+
+/* line 247, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 50ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2; }
+
+/* line 262, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay:target {
+  visibility: visible;
+  opacity: 1; }
+
+/* line 267, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
+  background: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  transition: 2.5s;
+  word-break: break-all;
+  margin-right: auto;
+  overflow: auto; }
+
+/* line 289, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .infoLink {
+  display: block;
+  margin-top: 10px;
+  text-decoration: underline;
+  color: #666; }
+
+/* line 295, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .infoText {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+/* line 300, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup #tags {
+  margin-top: 20px; }
+
+/* line 303, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup #tags .tag {
+  display: inline-block;
+  padding: 7px 10px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  margin: 5px; }
+
+/* line 310, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+#inputText, #inputText1, #inputText2, #inputText3 {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px; }
+
+/* line 316, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+#link {
+  margin-top: 40px; }
+
+/* line 319, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup img {
+  width: 25px;
+  display: inline;
+  margin-right: 5px;
+  margin-bottom: -3px;
+  cursor: pointer; }
+
+/* line 326, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .image {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+/* line 330, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .image img {
+  width: 100%;
+  border-radius: 10px; }
+
+/* line 334, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .video {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+/* line 338, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .video video {
+  width: 100%; }
+
+@media screen and (max-width: 1600px) {
+  /* line 344, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .sidePopup {
+    width: 50%; } }
+
+/* line 351, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.popup {
+  margin: 80px auto;
+  padding: 50px 50px;
+  background: #fff;
+  border-radius: 10px;
+  width: 50%;
+  position: relative;
+  transition: all 1s ease-out;
+  overflow: auto; }
+
+/* line 363, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay h2 {
+  color: #000;
+  font-weight: 600;
+  font-size: 25px;
+  display: inline;
+  white-space: pre-line; }
+
+/* line 372, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay h2 span {
+  font-weight: 600; }
+
+/* line 377, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .close {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  transition: all 20ms;
+  font-size: 50px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #000; }
+
+/* line 387, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .close:hover {
+  color: #d51f1f; }
+
+/* line 390, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content {
+  margin-top: 20px; }
+
+/* line 393, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .content {
+  margin-top: 10px; }
+
+/* line 396, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.sidePopup .content::-webkit-scrollbar {
+  display: none; }
+
+/* line 400, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .popupItem {
+  margin-bottom: 10px; }
+
+/* line 403, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .popupItem a {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666; }
+
+/* line 409, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .popupItem a:hover {
+  color: #000; }
+
+/* line 413, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form {
+  width: 98%; }
+
+/* line 417, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form .textarea {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 10px 10px 0;
+  width: 100%;
+  border: none;
+  border-bottom: #999 1px solid;
+  margin-top: 40px; }
+
+/* line 427, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form .submit {
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  padding: 8px 32px;
+  border-radius: 5px;
+  margin-top: 40px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  float: right; }
+
+/* line 440, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content .delete {
+  float: left;
+  width: 40px;
+  margin-top: 40px;
+  padding: 7px;
+  border-radius: 50%;
+  cursor: pointer; }
+
+/* line 448, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content .delete:hover {
+  background-color: #dedede; }
+
+/* line 452, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form .title-textarea {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 10px 5px 0;
+  width: 100%;
+  border: none;
+  border-bottom: #999 1px solid;
+  margin-bottom: 10px; }
+
+/* line 463, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form .text-textarea {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 20px 10px 10px 10px;
+  width: 100%;
+  border: none;
+  border: #999 1px solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  resize: none;
+  scrollbar-width: none;
+  height: 300px; }
+
+/* line 479, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.overlay .content form .select {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-right: #999 1px solid;
+  margin-bottom: 10px; }
+
+/* line 491, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.selectlabel {
+  padding: 5px;
+  background: white;
+  font-size: 17px;
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 5px; }
+
+/* line 499, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+#headlines {
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  border: none;
+  margin-top: 0;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 10px; }
+
+/* line 510, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+#headlines option {
+  font-size: 15px;
+  padding: 7px;
+  border-radius: 3px;
+  margin-bottom: 5px; }
+
+/* line 517, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+select[multiple]:focus option:checked {
+  background: gray linear-gradient(0deg, gray 0%, gray 100%);
+  border: none; }
+
+/* line 522, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+.document {
+  width: 90%;
+  margin: auto; }
+
+@media only screen and (max-device-width: 730px) {
+  /* line 531, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .home-section {
+    right: 0;
+    width: 100%; }
+  /* line 535, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .back img {
+    right: 20px; }
+  /* line 538, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .home-section .home-content {
+    padding-top: 0; }
+  /* line 541, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .section2 .heading .search-bar, .feedtable .iLink, .feedtable .bxs-calendar-alt, .feedtable .party, .feedtable .tags {
+    display: none; }
+  /* line 544, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .section2 .heading {
+    grid-template-columns: 60% 35%; }
+  /* line 547, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .feedtable .title {
+    max-width: 260px; }
+  /* line 550, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .feedtable .created_at {
+    max-width: 30%; }
+  /* line 556, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .sidePopup {
+    display: block;
+    position: sticky;
+    width: 100%; }
+  /* line 562, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .popup {
+    margin: 0 0;
+    width: 100%;
+    height: 100vh; }
+  /* line 567, c:/users/monder/desktop/django-projects/infoapp/infoapp/static/main/css/style.scss */
+  .popup .content {
+    min-height: 80%; } }

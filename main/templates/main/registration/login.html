@@ -1,0 +1,220 @@
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  *:focus {
+    outline: none;
+  }
+  body {
+    background: #fafafa;
+  }
+
+.section1 {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 14px;
+
+}
+.container {
+  width: 500px;
+  height: 480px;
+  overflow-x: hidden;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.container .forms {
+  position: relative;
+  width: 100%;
+  text-align: center;
+ }
+.container .forms .form {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 480px;
+  transition: all 0.5s ease-in;
+}
+.container .forms .form h3 {
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: right;
+}
+.container .forms .form form {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.container .forms .form form #username {
+  margin: 10px 0px;
+  border: none;
+  padding: 15px;
+  border-bottom: 1px solid #a3a3a3;
+  width: 100%;
+  text-align: right;
+}
+.container .forms .form form #username:focus {
+  outline: none !important;
+}
+.container .forms .form form #password1 {
+  margin: 10px 0px;
+  border: none;
+  padding: 15px;
+  border-bottom: 1px solid #a3a3a3;
+  width: 100%;
+  text-align: right;
+}
+.container .forms .form form #password1:focus {
+  outline: none !important;
+}
+.container .forms .form form #password2 {
+  margin: 10px 0px;
+  border: none;
+  padding: 15px;
+  border-bottom: 1px solid #a3a3a3;
+  width: 100%;
+  text-align: right;
+}
+.container .forms .form form #password2:focus {
+  outline: none !important;
+}
+.container .forms .form form #submit {
+  border: none;
+  padding: 10px 20px;
+  margin-top: 17px;
+  background-color: #000;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  width: 40%;
+  float: left;
+  margin-left: auto;
+}
+.container .forms .form form #submit:focus {
+  outline: none;
+}
+.container .forms .form span {
+  margin: 10px 0px;
+}
+
+.container .forms .form .or {
+  float: right;
+  width: 55%;
+  direction: rtl;
+  margin-top: -39px;
+}
+.container .forms .form .or h3 {
+  display: inline;
+  color: #000;
+  font-size: 25px;
+  margin-left: 20px;
+  font-weight: 200;
+
+}
+.container .forms .form .or a {
+  display: inline;
+  color: #000;
+  font-size: 20px;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+      width:  90%;
+      
+    }
+}
+
+
+
+</style>
+<body>
+<div class="section1">
+    {% if page == 'loginPage' %}
+    <div class="container">
+      <div class="forms">
+        <div class="form">
+          <h3>تسجيل الدخول</h3>
+          <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" id="username" class="username" placeholder="قم بإخال اسم المستخدم الخاص بك"/><br>
+                <input type="password" name="password" id="password1" class="password" placeholder="أدخل كلمة المرور"/><br>
+                <button id="submit" type="submit" class="btn btn-primary">تسجيل</button>
+                <div class="or">
+                  <h3>أو</h3>
+                  <a href="{% url 'register' %}">إنشاء حساب</a>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+  {% else %}
+  <div class="container">
+    <div class="forms">
+      <div class="form">
+        <h3>إنشاء حساب</h3>
+        <form method="POST">
+              {% csrf_token %}
+              {{ form.username }}
+              {{ form.password1 }}
+              {{ form.password2 }}
+
+              <button id="submit" type="submit" class="btn btn-primary">إنشاء</button>
+              <div class="or">
+                <h3>أو</h3>
+                <a href="{% url 'login' %}">تسجيل الدخول</a>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+
+
+
+<script>
+$('#username, #password').on('input', function() {
+    if ($('#username').val() && $('#password').val()) {
+        $('.login').addClass('buttonafter');
+    } else {
+        $('.login').removeClass('buttonafter');
+    }
+});
+</script>
+</body>
+</html>
+{% endblock content %}

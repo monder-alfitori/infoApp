@@ -1,0 +1,49 @@
+{% load static %}
+<head>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+
+</head>
+
+<div id="showInfo{{info.id}}" class="overlay">
+    <div class="sidePopup">
+      <h2>{{info.title}}</h2>
+      {% if request.user == info.creator %}
+      <a href="#editInfo{{info.id}}"><img src="{% static 'main/images/edit.png' %}" alt=""></a>
+      {% endif %}
+      {% if info.link == None %}
+        <p class="infoLink">لا يوجد رابط لهذه المعلومة...</p>
+      {% else %}
+        <a class="infoLink" href="{{info.link}}" target="_blank">{{info.link}}</a>
+      {% endif %}
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <p class="infoText">{{info.text|linebreaksbr}}</p>
+        {% if '.jpg' in info.file.url|lower or '.jpeg' in info.file.url|lower or '.png' in info.file.url|lower or '.gif' in info.file.url|lower %}    
+        <div class="image">
+          <img src="/media/{{info.file}}" alt="">
+        </div>
+        {% elif '.mp4' in info.file.url|lower or '.avi' in info.file.url|lower or '.mov' in info.file.url|lower or '.mkv' in info.file.url|lower %}        
+        <div class="video">
+          <video class="afterglow" id="myvideo">
+            <source type="video/mp4" src="/media/{{info.file}}" />
+            </video>
+        </div>
+        {% endif %}
+        <div id="tags" class="tags">
+              {% for obj in info.party.all %}
+              <a onclick="openLoaderPage()" class="tag" hx-get="{% url 'party' obj.id %}">@{{obj.title}}</a>
+              {% endfor %}
+          </div>
+          <div id="tags" class="tegs">
+              {% for obj in info.tags.all %}
+              <a onclick="openLoaderPage()" class="tag" hx-get="{% url 'tag' obj.id %}">#{{obj.title}}</a>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+  </script>

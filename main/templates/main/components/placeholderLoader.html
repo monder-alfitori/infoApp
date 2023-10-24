@@ -1,0 +1,94 @@
+{% load static %}
+
+<div class="loader_container" id="loader_container">
+    <div style="margin-bottom: 20px;" class="heading">
+        <div class="right">
+            <div style="width: 40%; margin: 0 0 0 auto; height: 30px;" class="placeholder"><div class="animated-background"></div></div>
+        </div>
+    </div>
+    <table class="feedtable">
+        <tr>
+            <th><i class='bx bxs-copy' ></i><span class="link_name"></span></th>
+            <th><a class="iLink"><i class='bx bxs-message-square' ></i><span class="link_name"></span></a></th>
+            <th><a class="iLink"><i class='bx bxs-collection' ></i><span class="link_name"></span></a></th>
+            <th><i class='bx bxs-calendar-alt' ></i><span class="link_name"></span></th>
+        </tr>
+        {% for place in "x"|ljust:7  %}
+        <tr>
+            <td class="title">
+                <div class="placeholder"><div class="animated-background"></div></div>
+            </td>
+            <td class="party">
+                <div class="placeholder"><div class="animated-background"></div></div>
+            </td>
+            <td class="tags">
+                <div class="placeholder"><div class="animated-background"></div></div>
+            </td>
+            <td class="created_at">
+                <div class="placeholder"><div class="animated-background"></div></div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+<style>
+
+    .loader_container {
+        width: calc(100% - 260px);
+        position: fixed;
+        right: 260px;
+        height: 100vh;
+        z-index: 99;
+        padding-left: calc(5px + 5%);
+        padding-right: calc(5px + 5%);
+        padding-top: 100px;
+        display: none;
+    }
+
+    .placeholder {
+        margin: 0 auto;
+        width: 100%;
+        background-color: #eee;
+        height: 20px;
+        border-radius: 5px;
+
+    }
+
+
+    @keyframes placeHolderShimmer{
+        0%{
+            background-position: -468px 0
+        }
+        100%{
+            background-position: 468px 0
+        }
+    }
+
+    .animated-background {
+        animation-duration: 1.25s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: darkgray;
+        background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+        position: relative;
+        height: 100%;
+        border-radius: 25px;
+
+    }
+</style>
+
+<script>
+    function openLoaderPage() {
+        document.getElementById("loader_container").style.display = "block";
+        document.getElementById("home-section").style.display = "none";
+        document.getElementById("popup").style.display = "none";
+
+      }
+</script>

@@ -1,0 +1,140 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'main/css/style.scss' %}"     rel="stylesheet" media="screen">
+    {% endcompress %}
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://unpkg.com/htmx.org@1.5.0"
+     integrity="sha384-oGA+prIp5Vchu6we2YkI51UtVzN9Jpx2Z7PnR1I78PnZlN8LkrCT4lqqqmDkyrvI"
+     crossorigin="anonymous"></script>
+    </head>
+   <style>
+
+   </style>
+<body>
+
+</body>
+
+<body hx-target="this" hx-swap="outerHTML">
+  <div class="section1">
+    {% include 'main/components/sidebar.html' %}
+    {% include 'main/components/placeholderLoader.html' %}
+
+    <section class="home-section" id="home-section">
+      <div class="home-content">
+      </div>
+      <div class="section2">
+        <div class="back">
+            <a onclick="openLoaderPage()" hx-get="{% url 'home' %}"><img src="{% static 'main/images/back.png' %}" alt=""></a>
+        </div>  
+        <div class="heading">
+            <div class="right">
+                <h2 class="title">الجهات والأفراد</h2>
+            </div>
+            <div class="left">
+                <a href="#addParty" class="add">إضافة +</a>
+                <div class="search-bar">
+                  <form onsubmit="openLoaderPage()" hx-get="{% url 'search' %}" class="form">
+                    <input type="hidden" name="form_type" value="partysearchform">
+                    <input type="text" name="query" id="search_input" placeholder="البحث عن جهة..." oninput="replaceSpaces1()"/>
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="feed">
+            <table class="feedtable">
+            <tr>
+                <th><i class='bx bxs-copy' ></i><span class="link_name"></span></th>
+                <th><i class='bx bxs-message-square' ></i><span class="link_name"></span></th>
+                <th><i class='bx bxs-collection' ></i><span class="link_name"></span></th>
+                <th><i class='bx bxs-calendar-alt' ></i><span class="link_name"></span></th>
+            </tr>
+            {% for party in parties %}
+            <tr>
+                <td class="title"><a onclick="openLoaderPage()" class="td_link" hx-get="{% url 'party' party.id %}">{{party.title}}</a></td>
+                <td class="party">
+                  {% if party.headline.all.count == 0 %}
+                  <a href="" class="td_link">لا جهات متعلقة</a>
+                  {% else %}
+                  {% for obj in party.headline.all|slice:":1" %}
+                  <a onclick="openLoaderPage()" hx-get="" class="td_link">{{obj.title}}</a>
+                  {% endfor %}
+                  {% endif %}
+                </td>
+                <td class="count">{{party.infoParty.all.count}}</td>
+                <td class="created_at">{{party.created_at|date:"M Y, d" }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+  
+
+  
+    <div id="addParty" class="overlay">
+        <div class="sidePopup" id="sidePopup">
+          <h2>إضافة جهة جديدة</h2>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            <form method="post" onsubmit="openLoaderPage()" hx-post="{% url 'parties' %}" action="." id="addParty">
+              {% csrf_token %}
+                  <input type="hidden" name="form_type" value="addParty">
+                  <input type="text" class="textarea" id="title_textarea" name="title" placeholder="كتابة عنوان للجهة..." oninput="replaceSpaces()">
+                  <label for="headlines" class="selectlabel">الفئة:</label>
+                  <select name="headlines" id="headlines" multiple>
+                    {% for headline in headlines %}
+                    <option value="{{headline.id}}">{{headline.title}}</option>
+                    {% endfor %}
+                  </select>
+                  <label for="headlines" class="selectlabel">الوصف:</label>
+                  <textarea style="margin-top: 0;" name="text" id="textarea" class="text-textarea" placeholder="كتابة الوصف هنا..."></textarea>
+                  <button class="submit" type="submit" onclick="openLoaderPage(), replaceSpaces()" hx-post="{% url 'parties' %}">إضافة</button>
+                </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function replaceSpaces() {
+          var inputField = document.getElementById('title_textarea');
+          var inputValue = inputField.value;
+          var replacedValue = inputValue.replace(/ /g, '_');
+          inputField.value = replacedValue;
+        }
+      </script>
+      <script>
+        function replaceSpaces1() {
+          var inputField = document.getElementById('search_input');
+          var inputValue = inputField.value;
+          var replacedValue = inputValue.replace(/ /g, '_');
+          inputField.value = replacedValue;
+        }
+      </script>
+
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    </script>
+  
+  <script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+    event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+  </script>
+  </body>
+</html>
+{% endblock content %} 

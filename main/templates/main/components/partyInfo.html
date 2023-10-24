@@ -1,0 +1,14 @@
+{% load static %}
+
+<div id="showPartyInfo" class="overlay">
+    <div class="sidePopup">
+      <h2>{{party.title}}</h2>
+      {% if request.user == party.creator %}
+      <a href="#editTitle"><img src="{% static 'main/images/edit.png' %}" alt=""></a>
+      {% endif %}
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <p class="infoText">{{party.text|linebreaksbr }}</p>
+      </div>
+    </div>
+</div>
